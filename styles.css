@@ -1,0 +1,19 @@
+#image{
+    padding-top: 16px;
+    display: block;
+    margin: auto;
+}
+
+.jumbotron{
+    background: #9575CD;
+    margin: 16px auto;
+    color: floralwhite;
+    padding: 30px 30px 70px 30px;
+}
+
+.page-footer{
+    background: #8ad3e9;
+    padding: 20px;
+    margin-top: 20px;
+}
+
