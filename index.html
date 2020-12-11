@@ -178,7 +178,9 @@ branch.link(linkData, function(err, link) {
                 <!--Second column-->
                 <div class="col m6">
                     <h5 class="text-uppercase">Links to My Profiles</h5>
-                    <button type="button">"Trigger Event"</button>
+
+                    <button onClick="funcEvent()" type="button">"Trigger Event"</button>
+                    
                     <ul class="list-unstyled">
                         <li>
                             <a href="https://github.com/kkdroidgit">GitHub Profile</a>
@@ -216,6 +218,19 @@ branch.link(linkData, function(err, link) {
       <script>
           const enlarge = document.querySelectorAll('.materialboxed');
           M.Materialbox.init(enlarge , {});
+          
+          function funcEvent(){
+            var customData = {
+                "applicationStatus": "{{Application Status}}",
+                "referrer": {{Fixed Referrer}},
+                "zip_publicConsumerId": {{api_customer.data.customer.publicConsumerId}},
+                "branch_identity_id": branch_identity_id,
+                "origination_flow": "v1 my.zipmoney",
+                "user_agent": navigator.appVersion
+            }
+            branch.logEvent(
+                "APPLICATION_CREATED",customData,function(err) { console.log(err); });
+            }
       </script>
 </body>
 </html>
