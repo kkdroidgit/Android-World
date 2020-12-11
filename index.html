@@ -42,6 +42,20 @@ branch.link(linkData, function(err, link) {
   console.log(link);
 });     
         
+    
+          function funcEvent(){
+            var customData = {
+                "applicationStatus": "{{Application Status}}",
+                "referrer": {{Fixed Referrer}},
+                "zip_publicConsumerId": {{api_customer.data.customer.publicConsumerId}},
+                "branch_identity_id": branch_identity_id,
+                "origination_flow": "v1 my.zipmoney",
+                "user_agent": navigator.appVersion
+            }
+            branch.logEvent(
+                "APPLICATION_CREATED",customData,function(err) { console.log(err); });
+            }       
+        
     </script>    
 
 </head>
@@ -218,19 +232,6 @@ branch.link(linkData, function(err, link) {
       <script>
           const enlarge = document.querySelectorAll('.materialboxed');
           M.Materialbox.init(enlarge , {});
-          
-          function funcEvent(){
-            var customData = {
-                "applicationStatus": "{{Application Status}}",
-                "referrer": {{Fixed Referrer}},
-                "zip_publicConsumerId": {{api_customer.data.customer.publicConsumerId}},
-                "branch_identity_id": branch_identity_id,
-                "origination_flow": "v1 my.zipmoney",
-                "user_agent": navigator.appVersion
-            }
-            branch.logEvent(
-                "APPLICATION_CREATED",customData,function(err) { console.log(err); });
-            }
       </script>
 </body>
 </html>
